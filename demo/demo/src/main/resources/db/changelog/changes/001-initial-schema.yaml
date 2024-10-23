@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: yourname
+      changes:
+        - sql:
+            splitStatements: false
+            stripComments: true
+            sql: "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";"
+      rollback:
+        - sql: "DROP EXTENSION IF EXISTS \"uuid-ossp\";"
+
+  - changeSet:
+      id: 2
+      author: yourname
+      changes:
+        - createTable:
+            tableName: location_images
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  defaultValueComputed: "uuid_generate_v4()"
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: image_url
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: location_images

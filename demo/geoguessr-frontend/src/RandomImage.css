@@ -1,0 +1,97 @@
+/* Basic container styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #254888, #01070e); /* Dark purple to black gradient */
+    /* color: white; */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.0); /* Transparent background */
+}
+
+.game-box {
+    text-align: center;
+    height: 80%;
+    /* background-color: #fff; */
+    padding: 30px; /* Increased padding for a larger box */
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Slightly larger shadow for depth */
+    width: 500px; /* Increased width for a larger game box */
+}
+
+.country-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: -20px; /* Increased margin below the image */
+}
+
+.guess-input {
+    margin-top: -20px;
+    width: 90%; /* Make input take full width */
+    padding: 12px; /* Increased padding for comfort */
+    margin-bottom: 0px; /* Increased margin below the input */
+    border-radius: 15px;
+    border: 1px solid #1b1a1ab9;
+    font-size: 18px; /* Increased font size */
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent input */
+}
+
+.feedback-message {
+    font-size: 20px; /* Increased font size for feedback */
+    font-weight: bold;
+    margin-top: 30px; /* Increased margin on top */
+}
+
+.feedback-message.correct {
+    color: #28a745; /* Green for correct */
+}
+
+.feedback-message.incorrect {
+    color: #dc3545; /* Red for incorrect */
+}
+
+.guess-input {
+    color: #ffffff; /* Red for incorrect */
+}
+
+.title {
+    color: #ffffff; /* Red for incorrect */
+    margin-bottom: -50px;
+}
+
+.U-highlight {
+    color: rgb(20, 236, 53); /* Change this to your desired color */
+    font-weight: bold; /* Optional: makes the letter bold */
+}
+
+/* Loading spinner */
+.loading {
+    font-size: 20px; /* Increased font size for loading text */
+    color: #007bff; /* Blue color for loading text */
+}
+
+/* Fade-in effect for new images */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

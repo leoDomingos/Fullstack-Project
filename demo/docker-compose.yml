@@ -1,0 +1,33 @@
+services:
+  # PostgreSQL Database Service
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: leonardo1
+      POSTGRES_DB: geoguessr
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  # Backend (Spring Boot) Service
+  backend:
+    build: ./demo  # Path to your backend folder
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/geoguessr
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: leonardo1
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+  # Frontend (React) Service
+  frontend:
+    build: ./geoguessr-frontend  # Path to your frontend folder
+    ports:
+      - "3000:80"  # Mapping React app on port 3000
+
+volumes:
+  postgres_data:
