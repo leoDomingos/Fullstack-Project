@@ -19,7 +19,7 @@ public class DatabaseInitializer {
     public void init() {
         // Check if the database is empty before adding initial data
         if (locationImageRepository.count() == 0) {
-            // Create and save initial location images
+            // Create and save all Anki cards
             locationImageRepository.save(new ImageLocation(
                 "https://cdn.britannica.com/99/22399-050-FFE3FA25/Hydrogen-H-Its-symbol-square-hydrogen-properties.jpg",
                 "Hydrogen"

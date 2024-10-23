@@ -10,7 +10,8 @@ import java.util.UUID;
 @Repository
 public interface ImageLocationRepository extends JpaRepository<ImageLocation, UUID> {
     
-    // Custom queries can go here if needed
+    // This is the method we'll call for getting a random image
+    // JPA allows us to just straight up use SQL to make our lives easier here 
     @Query(value = "SELECT * FROM location_images ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
     ImageLocation findRandomImage();
 }

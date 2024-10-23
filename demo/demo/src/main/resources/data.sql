@@ -1,3 +1,5 @@
+-- Getting this to work properly was much harder than just using the databaseInitializer
+-- Come back to this later
 -- INSERT INTO location_images (image_url, country) VALUES
 --   (uuid_generate_v4(), 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Map_of_USA_with_state_names.svg/800px-Map_of_USA_with_state_names.svg.png', 'USA'),
 --   (uuid_generate_v4(), 'https://s1.static.brasilescola.uol.com.br/be/2021/04/canada-mapa.jpg', 'Canada'),

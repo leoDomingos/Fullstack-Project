@@ -21,7 +21,7 @@ public class ImageLocationController {
 
     @GetMapping("/random")
     public ResponseEntity<ImageLocation> getRandomImage() {
-        // Retrieve all images from the database
+        // Retrieve a random image
         ImageLocation randomImage = imageLocationRepository.findRandomImage();
 
         if (randomImage == null) {
@@ -33,7 +33,7 @@ public class ImageLocationController {
         return ResponseEntity.ok(randomImage);
     }
 
-    @GetMapping("/test")
+    @GetMapping("/test") // Just to see if spring is working
     public ResponseEntity<String> testEndpoint() {
         return ResponseEntity.ok("API is working!");
     }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './RandomImage.css'; // Assuming you have a CSS file
+import './RandomImage.css';
 
 const RandomImageHardcoded = () => {
     const [userGuess, setUserGuess] = useState('');
@@ -11,14 +11,14 @@ const RandomImageHardcoded = () => {
     const fetchRandomImage = async () => {
         setIsLoading(true);  // Start loading
         try {
-            const response = await fetch('http://localhost:8080/api/random');
+            const response = await fetch('http://localhost:8080/api/random'); // Getting the image from the Backend
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            setImageData(data);
-            setUserGuess(''); // Reset input box when fetching a new image
-            setMessage('');   // Clear previous message
+            setImageData(data); // Placing image
+            setUserGuess('');   // Reset input box when fetching a new image
+            setMessage('');     // Clear previous message
         } catch (error) {
             console.error('Error fetching random image:', error);
         } finally {
@@ -27,13 +27,13 @@ const RandomImageHardcoded = () => {
     };
 
     const handleGuess = () => {
-        if (userGuess.toLowerCase() === imageData.country.toLowerCase()) {
+        if (userGuess.toLowerCase() === imageData.country.toLowerCase()) { // why the triple "?" (===)
             setMessage('Correct!');
         } else {
             setMessage(`Incorrect! The correct answer is ${imageData.country}.`);
         }
 
-        // Set a timer to clear the message after 3 seconds
+        // Set a timer to clear the message after 1 second
         setTimeout(() => {
             setMessage('');
             fetchRandomImage(); // Fetch a new random image
